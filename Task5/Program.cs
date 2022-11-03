@@ -11,20 +11,25 @@ bool isParseSize1 = int.TryParse(Console.ReadLine(), out int size1);
 if (!isParseSize1 || size1 <= 0)
 {
     Console.WriteLine("Вы ввели не корректные данные");
+    return;
 }
 Console.WriteLine("Введите размер массива 2");
+
 bool isParseSize2 = int.TryParse(Console.ReadLine(), out int size2);
 if (!isParseSize2 || size2 <= 0)
 {
     Console.WriteLine("Вы ввели не корректные данные");
+    return;
 }
-if (size1 != size2 || size1==0 || size2==0)
+if (size1 != size2)
 {
     Console.WriteLine(false);
 }
 else
 {
+    Console.WriteLine("Введите элементы массива 1");
     int[] array1 = Array(size1);
+    Console.WriteLine("Введите элементы массива 2");
     int[] array2 = Array(size2);
     int count = 0;
     for (int i = 0; i < size1; i++)
