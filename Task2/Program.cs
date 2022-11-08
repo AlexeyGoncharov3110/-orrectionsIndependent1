@@ -7,9 +7,10 @@ int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число B");
 int b = Convert.ToInt32(Console.ReadLine());
 
-if (a % b == 0)
+bool multiple= Multiple(a,b);
+Console.WriteLine(multiple);
+bool Multiple(int digit1 , int digit2)
 {
-    Console.WriteLine(true);
+int result = digit1 % digit2;
+return result ==0;
 }
-else
-Console.WriteLine(false);
