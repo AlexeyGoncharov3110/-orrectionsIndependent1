@@ -9,18 +9,26 @@ if (!isParseSize)
 {
     Console.WriteLine("Вы ввели не корректные данные");
 }
-int[] array = Array(size);
-int[] Array(int size)
+int[] fillInArrayRandomly = FillInArrayRandomly(size);
+PrintArray(fillInArrayRandomly);
+void PrintArray(int [] array)
+{
+Console.Write("[");
+for(int i = 0;i<array.Length-1;i++)
+{
+    Console.Write($"{array[i]},");
+}
+Console.Write($"{array[array.Length-1]}]");
+}
+
+int[] FillInArrayRandomly(int size)
 {
     int[] array = new int[size];
-    Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
         Random random = new Random();
         int randomNumber = random.Next(0, 10);
         array[i] = randomNumber;
-        Console.Write(array[i] + " ");
     }
-    Console.Write("]");
     return array;
 }
