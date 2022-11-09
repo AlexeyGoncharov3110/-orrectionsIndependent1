@@ -44,16 +44,18 @@ else
         int[] array = new int[size];
         for (int i = 0; i < array.Length; i++)
         {
-            bool isParsedNum = int.TryParse(Console.ReadLine(), out int number);
-            if (!isParsedNum)
+            int number = 0;
+            bool isParsedNum = false;
+            while (!isParsedNum)
             {
-                Console.WriteLine("Введены некорректные данные, повторите ввод");
-                i--;
+                
+                isParsedNum = int.TryParse(Console.ReadLine(), out number);
+                if (!isParsedNum)
+                {
+                    Console.WriteLine("Не правильно введенны данные , повторите ввод");
+                }
             }
-            else
-            {
-                array[i] = number;
-            }
+            array[i] = number;
         }
         return array;
     }
