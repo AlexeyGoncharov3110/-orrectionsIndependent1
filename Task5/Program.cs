@@ -14,7 +14,6 @@ if (!isParseSize1 || size1 <= 0)
     return;
 }
 Console.WriteLine("Введите размер массива 2");
-
 bool isParseSize2 = int.TryParse(Console.ReadLine(), out int size2);
 if (!isParseSize2 || size2 <= 0)
 {
@@ -31,12 +30,15 @@ else
     int[] array1 = Array(size1);
     Console.WriteLine("Введите элементы массива 2");
     int[] array2 = Array(size2);
-    int count = 0;
-    for (int i = 0; i < size1; i++)
+    bool ComparingArrays(int[] arr1, int[] arr2)
     {
-        if (array1[i] == array2[i]) count++;
+        int count = 0;
+        for (int i = 0; i < size1; i++)
+        {
+            if (array1[i] == array2[i]) count++;
+        }
+        return count == size1;
     }
-    Console.WriteLine(count == size1);
     int[] Array(int size)
     {
         int[] array = new int[size];
@@ -45,11 +47,16 @@ else
             bool isParsedNum = int.TryParse(Console.ReadLine(), out int number);
             if (!isParsedNum)
             {
-                Console.WriteLine("Введены некорректные данные");
-                break;
+                Console.WriteLine("Введены некорректные данные, повторите ввод");
+                i--;
             }
-            array[i] = number;
+            else
+            {
+                array[i] = number;
+            }
         }
         return array;
     }
+    bool comparingArrays = ComparingArrays(array1, array2);
+    Console.WriteLine(comparingArrays);
 }
